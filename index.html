@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caret - Your AI Development Partner</title>
+    <link rel="icon" href="images/icon.png" type="image/png">
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Caret - Your AI Development Partner">
+    <meta property="og:description" content="Caret integrates AI agents, local LLMs, and real-time collaboration into a single VS Code extension. Built for developers who want transparent, controllable AI assistance.">
+    <meta property="og:image" content="images/icon.png">
+    <meta property="og:type" content="website">
+    <script>
+        (function() {
+            const userLang = navigator.language || navigator.userLanguage;
+            const currentPath = window.location.pathname;
+            // 기본 언어를 영어로 가정
+            let targetFile = 'index.en.html'; 
+            if (userLang.startsWith('ko')) {
+                targetFile = 'index.ko.html';
+            }
+            
+            // 현재 경로에서 파일 이름만 변경
+            const newPath = currentPath.replace(/index\.html$/, targetFile);
+
+            // 리디렉션 (현재 페이지가 대상 파일이 아닌 경우에만)
+            if (window.location.pathname !== newPath) {
+                 // 히스토리 스택에 현재 페이지를 남기지 않고 이동 (뒤로가기 시 이전 페이지로 이동)
+                window.location.replace(newPath);
+            }
+        })();
+    </script>    
+    <style>
+        /* 리디렉션 페이지는 내용을 보여주지 않으므로 스타일 불필요 */
+        body { margin: 0; padding: 0; background-color: #1a202c; } 
+    </style>
+</head>
+<body>
+    <!-- 이 페이지는 언어 감지 후 리디렉션되므로 내용은 비워둡니다. -->
+    <!-- This page redirects based on browser language, so the body is empty. -->
+</body>
+</html>
