@@ -10,33 +10,162 @@
     <meta property="og:description" content="Caret integrates AI agents, local LLMs, and real-time collaboration into a single VS Code extension. Built for developers who want transparent, controllable AI assistance.">
     <meta property="og:image" content="images/icon.png">
     <meta property="og:type" content="website">
-    <script>
-        (function() {
-            const userLang = navigator.language || navigator.userLanguage;
-            const currentPath = window.location.pathname;
-            // 기본 언어를 영어로 가정
-            let targetFile = 'index.en.html'; 
-            if (userLang.startsWith('ko')) {
-                targetFile = 'index.ko.html';
-            }
-            
-            // 현재 경로에서 파일 이름만 변경
-            const newPath = currentPath.replace(/index\.html$/, targetFile);
-
-            // 리디렉션 (현재 페이지가 대상 파일이 아닌 경우에만)
-            if (window.location.pathname !== newPath) {
-                 // 히스토리 스택에 현재 페이지를 남기지 않고 이동 (뒤로가기 시 이전 페이지로 이동)
-                window.location.replace(newPath);
-            }
-        })();
-    </script>    
     <style>
-        /* 리디렉션 페이지는 내용을 보여주지 않으므로 스타일 불필요 */
-        body { margin: 0; padding: 0; background-color: #1a202c; } 
+        body { font-family: sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #1a202c; color: #f8f9fa; } /* Dark background, light base text */
+        .container { max-width: 960px; margin: 40px auto; padding: 30px; background-color: #ffffff; color: #212529; /* Dark text inside container */ border-radius: 8px; } /* Removed border */
+        h1, h2, h3 { margin-top: 1.5em; color: #1a202c; } /* Adjusted heading color */
+        img.banner { max-width: 100%; max-height: 300px; height: auto; margin-bottom: 1.5em; object-fit: cover; border-radius: 8px 8px 0 0; }
+        .feature-image { display: block; margin: 2em auto; max-width: 80%; height: auto; border: 1px solid #eee; border-radius: 4px; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 1em; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        pre { background-color: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; color: #212529; } /* Code block text color */
+        code { font-family: monospace; }
+        blockquote { border-left: 4px solid #ccc; padding-left: 1em; margin-left: 0; font-style: italic; color: #6c757d; } /* Blockquote text color */
+        ul, ol { padding-left: 20px; }
+        footer { text-align: center; margin-top: 40px; padding: 20px 0; border-top: 1px solid #343a40; font-size: 0.9em; color: #adb5bd; } /* Footer text color and top border color adjusted */
+        footer a { color: #ced4da; } /* Footer link color */
+        footer a:hover { color: #ffffff; } /* Footer link hover color */
     </style>
 </head>
 <body>
-    <!-- 이 페이지는 언어 감지 후 리디렉션되므로 내용은 비워둡니다. -->
-    <!-- This page redirects based on browser language, so the body is empty. -->
+  <div style="text-align: right; padding: 10px 20px; background-color: #1a202c;">
+    <a href="index.ko.html" style="color: #ced4da; text-decoration: none;">한국어</a>
+  </div>
+  <header> 
+  <center><h1><font color=white>Caret: Your AI Development Partner ✨</font></h1></center> </header>
+    <div class="container">
+        <header> 
+          <center> <img src="images/main_banner.jpg" alt="Caret Main Banner" class="banner"></center>
+        </header>
+
+        <section id="product">
+          <h2>Caret: Open-Source AI Development Partner</h2>
+          <p>
+            Caret **aims to integrate** AI agents, local LLMs, and real-time collaboration into a single VS Code extension.
+            It is **an open-source project being built** for developers who want transparent, controllable AI assistance.
+          </p>
+
+          <h3>Why Caret?</h3>
+          <p>
+            Feeling frustrated by the "black box" nature or limited customization of existing AI coding tools? 
+            Caret aims for an experience where developers and AI collaborate as trusted colleagues, 
+            providing an environment where you can transparently understand how AI agents work, control them directly according to your needs, 
+            and freely connect the LLMs you want.
+          </p>
+          <img src="images/caret_feature.png" alt="Caret Features" class="feature-image">
+
+          <h3>Key Values (Goals)</h3>
+          <ul>
+            <li><strong>Developer-controlled orchestration</strong> (using <code>.caretrules</code>)</li>
+            <li><strong>Multi-agent & RAG</strong> (Alpha supervisor + specialist agents) (Development Goal)</li>
+            <li><strong>Vibe Coding UX</strong> (CRDT real-time sync) (Development Goal)</li>
+            <li><strong>Model freedom</strong> – OpenAI, Groq, Gemini, or local sLLM (Planned, incl. future support)<br>
+                <em>B2B sLLM build & consulting support planned</em></li>
+          </ul>
+
+          <h3>Core Modules (Target Structure)</h3>
+          <p>Caret is being developed with the following target module structure:</p>
+          <table>
+            <thead><tr><th>Package</th><th>Role</th></tr></thead>
+            <tbody>
+              <tr><td><code>caret-core</code></td><td>Prompt & context engine (RAG, cache)</td></tr>
+              <tr><td><code>caret-agent</code></td><td>4 + 1 modes (Arch / Dev / Rule / Talk / Empty)</td></tr>
+              <tr><td><code>caret-ui-lite</code></td><td>Terminal & web viewer, CRDT sync</td></tr>
+              <tr><td><code>caret-dev-kit</code></td><td>Logs, prompt lab, visualization</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Roadmap Highlights</h3>
+          <ul>
+            <li><strong>Now</strong> – Initial development & refactoring phase (v0.x)</li>
+            <li><strong>2025 Q3</strong> – Real-time collaboration MVP, Alpha Supervisor</li>
+            <li><strong>2025 Q4</strong> – Caret Pro beta (advanced RAG, dashboards) + GCP credit matching</li>
+            <li><strong>2026</strong> – On-prem B2B sLLM cluster & consulting package launch</li>
+          </ul>
+
+          <h3>Quick Start</h3>
+          <pre><code>git clone https://github.com/aicoding-caret/caret-zero.git
+cd caret-zero
+pnpm install && pnpm run build:vsix
+# VS Code → Extensions → Install from VSIX
+</code></pre>
+          <p>Create a <code>.caretrules</code> file in your project root to define modes and rules.</p>
+        </section>
+
+        <hr style="margin: 40px 0;">
+
+        <section id="business-model">
+          <h2>Business Model</h2>
+
+          <h3>1. Offering</h3>
+          <table>
+            <thead><tr><th>Tier</th><th>Description</th><th>Pricing</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Caret OSS Core</td>
+                <td>Essential modules (AGPL)</td>
+                <td>Free</td>
+              </tr>
+              <tr>
+                <td>Caret Pro Credits</td>
+                <td>
+                  Premium RAG, dashboards, serverless builds<br>
+                  <strong>+ Google&nbsp;Cloud credit matching</strong>
+                </td>
+                <td>Pre-paid credits</td>
+              </tr>
+              <tr>
+                <td>Enterprise / B2B&nbsp;sLLM</td>
+                <td>On-prem LLM clusters, security hardening, long-term SLA</td>
+                <td>Contact us</td>
+              </tr>
+            </tbody>
+          </table>
+          <p><strong>Google Cloud Credits:</strong> Early adopters can convert their GCP credits to Caret Pro Credits at a 1:1 rate.</p>
+
+          <h3>2. Why Credits?</h3>
+          <ul>
+            <li>Flexibility to use what you need</li>
+            <li>Real-time cost transparency</li>
+            <li>No upfront contract needed</li>
+          </ul>
+
+          <h3>3. Credit Packages (KRW, VAT excl.)</h3>
+          <table>
+            <thead><tr><th>Package</th><th>Price</th><th>Credits</th><th>Discount</th></tr></thead>
+            <tbody>
+              <tr><td>Starter</td><td>₩100,000</td><td>100</td><td>-</td></tr>
+              <tr><td>Builder</td><td>₩450,000</td><td>500</td><td>10%</td></tr>
+              <tr><td>Studio</td><td>₩800,000</td><td>1,000</td><td>20%</td></tr>
+            </tbody>
+          </table>
+          <p>*1 credit ≒ 1k GPT-4o tokens or 2 min GPU time (subject to change).<br>
+             *Starter package free for users with equivalent GCP credits.</p>
+
+          <h3>4. Revenue Streams</h3>
+          <ol>
+            <li>Credit sales (incl. GCP credit conversion fee)</li>
+            <li><strong>B2B sLLM build & consulting</strong></li>
+            <li>Training / Enterprise subscriptions</li>
+          </ol>
+
+          <blockquote>
+            Caret combines open-source freedom with credit-based premium support, enabling safe AI-agent operations in both local and cloud environments.
+          </blockquote>
+        </section>
+
+    </div>
+
+    <footer style="text-align: center; margin-top: 40px; padding: 20px 0; border-top: 1px solid #343a40; font-size: 0.9em; color: #adb5bd;">
+        <p>
+            <strong>AIANETWORKS</strong><br>
+            CEO: J.E. Park | Business Registration No: 644-88-01791<br>
+            Address: 13F, Bamboo Tower, 449 Bongeunsa-ro, Gangnam-gu, Seoul (Samseong-dong 44-17)<br>
+            <a href="https://github.com/aicoding-caret/caret-zero" target="_blank" rel="noopener noreferrer">GitHub Repository</a> |
+            <a href="https://www.facebook.com/groups/1027316935397432" target="_blank" rel="noopener noreferrer">Facebook Group</a><br>
+            &copy; 2025 AIANETWORKS. All Rights Reserved.
+        </p>
+    </footer>
 </body>
 </html>
