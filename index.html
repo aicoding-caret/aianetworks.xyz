@@ -5,11 +5,22 @@
     <meta charset="UTF-8">
     <script type="text/javascript">
         function detectLanguageAndRedirect() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const specificLang = urlParams.get('lang');
+            const currentPath = window.location.pathname.split('/').pop();
+
+            // If lang parameter is present, or it's already a specific lang page, do nothing.
+            if (specificLang || currentPath === "index.ko.html" || currentPath === "index.en.html") {
+                return;
+            }
+
+            // Proceed with redirection if no language is specified and it's the root index.html
             var userLang = navigator.language || navigator.userLanguage; 
             if (userLang.startsWith("ko")) {
-                window.location.href = "index.ko.html";
+                // Use window.location.replace to prevent adding to browser history
+                window.location.replace("index.ko.html");
             } else {
-                window.location.href = "index.en.html";
+                window.location.replace("index.en.html");
             }
         }
         detectLanguageAndRedirect();
