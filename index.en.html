@@ -3,166 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caret - Your AI Development Partner</title>
+    <title>AIANETWORKS - Leading AI Innovation Partner</title>
     <link rel="icon" href="images/icon.png" type="image/png">
     <!-- Open Graph Tags -->
-    <meta property="og:title" content="Caret - Your AI Development Partner">
-    <meta property="og:description" content="Caret integrates AI agents, local LLMs, and real-time collaboration into a single VS Code extension. Built for developers who want transparent, controllable AI assistance.">
-    <meta property="og:image" content="images/icon.png">
+    <meta property="og:title" content="AIANETWORKS - Leading AI Innovation Partner">
+    <meta property="og:description" content="AIANETWORKS offers innovative AI solutions and technology consulting, including Paintly AI and AutoDeepIndexer.">
+    <meta property="og:image" content="images/paintly_ai_logo.png">
     <meta property="og:type" content="website">
     <style>
-        body { font-family: sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #1a202c; color: #f8f9fa; } /* Dark background, light base text */
-        .container { max-width: 960px; margin: 40px auto; padding: 30px; background-color: #ffffff; color: #212529; /* Dark text inside container */ border-radius: 8px; } /* Removed border */
-        h1, h2, h3 { margin-top: 1.5em; color: #1a202c; } /* Adjusted heading color */
-        img.banner { max-width: 100%; max-height: 300px; height: auto; margin-bottom: 1.5em; object-fit: cover; border-radius: 8px 8px 0 0; }
-        .feature-image { display: block; margin: 2em auto; max-width: 80%; height: auto; border: 1px solid #eee; border-radius: 4px; }
-        table { border-collapse: collapse; width: 100%; margin-bottom: 1em; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
-        pre { background-color: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; color: #212529; } /* Code block text color */
-        code { font-family: monospace; }
-        blockquote { border-left: 4px solid #ccc; padding-left: 1em; margin-left: 0; font-style: italic; color: #6c757d; } /* Blockquote text color */
-        ul, ol { padding-left: 20px; }
-        footer { text-align: center; margin-top: 40px; padding: 20px 0; border-top: 1px solid #343a40; font-size: 0.9em; color: #adb5bd; } /* Footer text color and top border color adjusted */
-        footer a { color: #ced4da; } /* Footer link color */
-        footer a:hover { color: #ffffff; } /* Footer link hover color */
+        /* Basic Reset */
+        body, h1, h2, h3, h4, p, ul, li, figure, figcaption, blockquote, dl, dd { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background-color: #f4f7f6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header { background-color: #ffffff; padding: 15px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8em; font-weight: bold; color: #2c3e50; text-decoration: none; }
+        .logo img { max-height: 50px; vertical-align: middle; }
+        nav ul { list-style: none; display: flex; }
+        nav ul li { margin-left: 25px; }
+        nav ul li a { text-decoration: none; color: #555; font-weight: 500; transition: color 0.3s ease; }
+        nav ul li a:hover, nav ul li a.active { color: #007bff; }
+        .lang-switch { margin-left: 20px; color: #555; text-decoration: none; font-weight: 500; }
+        .lang-switch:hover { color: #007bff; }
+
+        /* Hero Section */
+        .hero { background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/main_banner.jpg'); background-size: cover; background-position: center; color: white; padding: 100px 20px; text-align: center; min-height: 400px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .hero h1 { font-size: 3em; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
+        .hero p { font-size: 1.5em; margin-bottom: 30px; max-width: 700px; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
+        .hero .btn { background-color: #007bff; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-size: 1.1em; transition: background-color 0.3s ease; display: inline-block; }
+        .hero .btn:hover { background-color: #0056b3; }
+
+        /* Section Styling */
+        section { padding: 60px 0; }
+        section:nth-child(odd) { background-color: #ffffff; } /* Switched for hero to be on image */
+        .section-title { text-align: center; font-size: 2.5em; color: #2c3e50; margin-bottom: 50px; position: relative; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background-color: #007bff; margin: 10px auto 0; }
+
+        /* Milestones */
+        .milestones-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .milestone-item { background-color: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .milestone-item:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+        .milestone-item img { width: 100%; height: 200px; object-fit: cover; border-radius: 6px; margin-bottom: 15px; }
+        .milestone-item h4 { font-size: 1.3em; color: #007bff; margin-bottom: 10px; }
+        .milestone-item p { font-size: 0.95em; color: #555; }
+
+        /* Services & Technologies */
+        .service-item { margin-bottom: 50px; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px; padding: 20px; background-color: #fff; border-radius:8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .service-item:nth-child(even) .service-image-container { order: 2; }
+        .service-image-container { flex: 1 1 40%; max-width: 40%; }
+        .service-image-container img { width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom:15px; }
+        .service-content { flex: 1 1 55%; max-width: 55%; }
+        .service-content h3 { font-size: 2em; color: #2c3e50; margin-bottom: 15px; }
+        .service-content h4 { font-size: 1.5em; color: #007bff; margin-bottom: 10px; }
+        .service-content p { margin-bottom: 10px; }
+        .service-content ul { list-style: disc; padding-left: 20px; margin-bottom: 10px; }
+        .sample-images img { width: calc(50% - 5px); border-radius:4px; margin-bottom:10px; }
+        .sample-images { display:flex; flex-wrap:wrap; gap:10px; }
+
+        /* B2B 솔루션 섹션 특별 스타일 */
+        .b2b-solution-item { flex-direction: column; /* 아이템들을 세로로 쌓음 */ }
+        .b2b-solution-item .full-width-image-container { width: 100%; margin-bottom: 20px; }
+        .b2b-solution-item .full-width-image-container img { width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .b2b-solution-item .service-content { max-width: 100%; /* 텍스트 영역도 전체 너비 사용 */ }
+
+        /* Media & Partners */
+        .media-item img { max-width: 100%; border-radius: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .media-item p { margin-top: 10px; text-align: center; font-style: italic; }
+
+        /* Caret Project */
+        #caret-project { background-color: #e9ecef; }
+        #caret-project .service-content h3 { color: #17a2b8; }
+        #caret-project .service-content a { color: #17a2b8; font-weight:bold; }
+        #caret-project .service-content a:hover { text-decoration:underline; }
+        #caret-project .section-title::after { background-color: #17a2b8; }
+
+        /* Footer */
+        footer { background-color: #2c3e50; color: #ecf0f1; padding: 40px 0; text-align: center; }
+        footer p { margin-bottom: 10px; font-size: 0.9em; }
+        footer a { color: #3498db; text-decoration: none; }
+        footer a:hover { color: #5dade2; text-decoration: underline; }
+        .footer-links a { margin: 0 10px; }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header .container { flex-direction: column; align-items: center; }
+            .logo { margin-bottom:10px; }
+            nav ul { margin-top: 10px; flex-direction: column; align-items: center; width:100%; }
+            nav ul li { margin: 10px 0; width:100%; text-align:center; }
+            nav ul li a { display:block; padding:5px 0; }
+            .lang-switch { margin-top:10px; }
+
+            .hero h1 { font-size: 2.2em; }
+            .hero p { font-size: 1.2em; }
+            .section-title { font-size: 2em; }
+            
+            .service-item { flex-direction: column; align-items:center; }
+            .service-item:nth-child(even) .service-image-container { order: 0; }
+            .service-image-container, .service-content { max-width: 100%; text-align:center; }
+            .service-content h3, .service-content h4 { text-align:center;}
+            .service-content ul { display:inline-block; text-align:left; }
+            .sample-images img { width: calc(50% - 5px); }
+            #caret-project .section-title { text-align:center; }
+        }
     </style>
 </head>
 <body>
-  <header> 
-  <center><h1><font color=white>Caret: Your AI Development Partner ✨</font></h1></center> </header>
-    <div class="container">
-        <header> 
-          <center> <img src="images/main_banner.jpg" alt="Caret Main Banner" class="banner"></center>
-        </header>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="images/aianetworks_logo.png" alt="AIANETWORKS Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#milestones">Milestones</a></li>
+                    <li><a href="#services">Services & Tech</a></li>
+                    <li><a href="#media">Media</a></li>
+                    <li><a href="#caret-project">Caret Project</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="index.ko.html" class="lang-switch">한국어</a>
+        </div>
+    </header>
 
-        <section id="product">
-          <h2>Caret: Open-Source AI Development Partner</h2>
-          <p>
-            Caret **aims to integrate** AI agents, local LLMs, and real-time collaboration into a single VS Code extension.
-            It is **an open-source project being built** for developers who want transparent, controllable AI assistance.
-          </p>
-
-          <h3>Why Caret?</h3>
-          <p>
-            Feeling frustrated by the "black box" nature or limited customization of existing AI coding tools? 
-            Caret aims for an experience where developers and AI collaborate as trusted colleagues, 
-            providing an environment where you can transparently understand how AI agents work, control them directly according to your needs, 
-            and freely connect the LLMs you want.
-          </p>
-          <img src="images/caret_feature.png" alt="Caret Features" class="feature-image">
-
-          <h3>Key Values (Goals)</h3>
-          <ul>
-            <li><strong>Developer-controlled orchestration</strong> (using <code>.caretrules</code>)</li>
-            <li><strong>Multi-agent & RAG</strong> (Alpha supervisor + specialist agents) (Development Goal)</li>
-            <li><strong>Vibe Coding UX</strong> (CRDT real-time sync) (Development Goal)</li>
-            <li><strong>Model freedom</strong> – OpenAI, Groq, Gemini, or local sLLM (Planned, incl. future support)<br>
-                <em>B2B sLLM build & consulting support planned</em></li>
-          </ul>
-
-          <h3>Core Modules (Target Structure)</h3>
-          <p>Caret is being developed with the following target module structure:</p>
-          <table>
-            <thead><tr><th>Package</th><th>Role</th></tr></thead>
-            <tbody>
-              <tr><td><code>caret-core</code></td><td>Prompt & context engine (RAG, cache)</td></tr>
-              <tr><td><code>caret-agent</code></td><td>4 + 1 modes (Arch / Dev / Rule / Talk / Empty)</td></tr>
-              <tr><td><code>caret-ui-lite</code></td><td>Terminal & web viewer, CRDT sync</td></tr>
-              <tr><td><code>caret-dev-kit</code></td><td>Logs, prompt lab, visualization</td></tr>
-            </tbody>
-          </table>
-
-          <h3>Roadmap Highlights</h3>
-          <ul>
-            <li><strong>Now</strong> – Initial development & refactoring phase (v0.x)</li>
-            <li><strong>2025 Q3</strong> – Real-time collaboration MVP, Alpha Supervisor</li>
-            <li><strong>2025 Q4</strong> – Caret Pro beta (advanced RAG, dashboards) + GCP credit matching</li>
-            <li><strong>2026</strong> – On-prem B2B sLLM cluster & consulting package launch</li>
-          </ul>
-
-          <h3>Quick Start</h3>
-          <pre><code>git clone https://github.com/aicoding-caret/caret-zero.git
-cd caret-zero
-pnpm install && pnpm run build:vsix
-# VS Code → Extensions → Install from VSIX
-</code></pre>
-          <p>Create a <code>.caretrules</code> file in your project root to define modes and rules.</p>
+    <main>
+        <section id="hero" class="hero">
+            <h1>AI: Painting the Future Beyond Art and Technology</h1>
+            <p>AIANETWORKS explores new artistic possibilities and leads industrial digital transformation through innovative AI technology, creating better future value.</p>
+            <a href="#services" class="btn">View Core Services</a>
         </section>
 
-        <hr style="margin: 40px 0;">
-
-        <section id="business-model">
-          <h2>Business Model</h2>
-
-          <h3>1. Offering</h3>
-          <table>
-            <thead><tr><th>Tier</th><th>Description</th><th>Pricing</th></tr></thead>
-            <tbody>
-              <tr>
-                <td>Caret OSS Core</td>
-                <td>Essential modules (AGPL)</td>
-                <td>Free</td>
-              </tr>
-              <tr>
-                <td>Caret Pro Credits</td>
-                <td>
-                  Premium RAG, dashboards, serverless builds<br>
-                  <strong>+ Google&nbsp;Cloud credit matching</strong>
-                </td>
-                <td>Pre-paid credits</td>
-              </tr>
-              <tr>
-                <td>Enterprise / B2B&nbsp;sLLM</td>
-                <td>On-prem LLM clusters, security hardening, long-term SLA</td>
-                <td>Contact us</td>
-              </tr>
-            </tbody>
-          </table>
-          <p><strong>Google Cloud Credits:</strong> Early adopters can convert their GCP credits to Caret Pro Credits at a 1:1 rate.</p>
-
-          <h3>2. Why Credits?</h3>
-          <ul>
-            <li>Flexibility to use what you need</li>
-            <li>Real-time cost transparency</li>
-            <li>No upfront contract needed</li>
-          </ul>
-
-          <h3>3. Credit Packages (KRW, VAT excl.)</h3>
-          <table>
-            <thead><tr><th>Package</th><th>Price</th><th>Credits</th><th>Discount</th></tr></thead>
-            <tbody>
-              <tr><td>Starter</td><td>₩100,000</td><td>100</td><td>-</td></tr>
-              <tr><td>Builder</td><td>₩450,000</td><td>500</td><td>10%</td></tr>
-              <tr><td>Studio</td><td>₩800,000</td><td>1,000</td><td>20%</td></tr>
-            </tbody>
-          </table>
-          <p>*1 credit ≒ 1k GPT-4o tokens or 2 min GPU time (subject to change).<br>
-             *Starter package free for users with equivalent GCP credits.</p>
-
-          <h3>4. Revenue Streams</h3>
-          <ol>
-            <li>Credit sales (incl. GCP credit conversion fee)</li>
-            <li><strong>B2B sLLM build & consulting</strong></li>
-            <li>Training / Enterprise subscriptions</li>
-          </ol>
-
-          <blockquote>
-            Caret combines open-source freedom with credit-based premium support, enabling safe AI-agent operations in both local and cloud environments.
-          </blockquote>
+        <section id="milestones">
+            <div class="container">
+                <h2 class="section-title">Our History / Milestones</h2>
+                <div class="milestones-grid">
+                    <div class="milestone-item">
+                        <img src="images/event_president_visit_2019.jpg" alt="Visit to the Blue House">
+                        <h4>Jan 7, 2019: Visit to the Blue House</h4>
+                        <p>Paintly.AI invited to Innovative SME Product Exhibition.</p>
+                    </div>
+                    <div class="milestone-item">
+                        <img src="images/event_art_competition_2020.jpg" alt="AI x ART Competition">
+                        <h4>2020: 1st AI X ART Global Competition Held</h4>
+                        <p>Successful hosting of a global competition themed on the convergence of AI and art.</p>
+                    </div>
+                    <div class="milestone-item">
+                        <img src="images/event_media_canvas_2020.jpg" alt="Seoullo Media Canvas Exhibition">
+                        <h4>2020: 'Project PAV' Exhibition at Seoullo Media Canvas</h4>
+                        <p>Participation in the 'PULSE9 X A.I.' Project PAV exhibition as a collaborative effort.</p>
+                    </div>
+                    <!-- Add more milestone items here if any. Example:
+                    <div class="milestone-item">
+                        <img src="images/placeholder_milestone.png" alt="Key Technology Development">
+                        <h4>[Year.Month] [Key Milestone Title]</h4>
+                        <p>[Brief description of the milestone]</p>
+                    </div>
+                    -->
+                </div>
+            </div>
         </section>
 
-    </div>
+        <section id="services">
+            <div class="container">
+                <h2 class="section-title">Core Services & Technologies</h2>
+                
+                <article class="service-item">
+                    <div class="service-image-container">
+                        <img src="images/paintly_ai_logo.png" alt="Paintly AI Logo">
+                    </div>
+                    <div class="service-content">
+                        <h3>Paintly AI</h3>
+                        <p>Paintly, an AI-based video styler offering near-limitless possibilities, is one of the most advanced AI styling solutions available today. Based on AIANETWORKS' proprietary AI style transfer model, it delicately preserves the characteristics of original content while quickly and accurately applying various artistic styles desired by the user, creating new visual experiences. Its One Source Multi-Use feature allows for the generation of diverse outputs from a single source.</p>
+                        <p><strong>Key Technologies:</strong> Proprietary AI Style Transfer Model, One Source Multi-Use</p>
+                        <p><strong>Applications:</strong> Film, Webtoons, Digital Art, Advertising, Personalized Goods Production, etc.</p>
+                        <h4>Key Works & Demonstrations</h4>
+                        <img src="images/paintly_how_it_works.jpg" alt="Paintly AI How it Works" style="width:100%; margin-top:10px; border-radius:4px; margin-bottom:10px;">
+                        <div class="sample-images">
+                           <img src="images/paintly_sample_movie_landscape.jpg" alt="Paintly AI Movie Landscape Sample">
+                           <img src="images/paintly_sample_ordermade_portrait.jpg" alt="Paintly AI Custom Order Portrait Sample">
+                        </div>
+                    </div>
+                </article>
 
-    <footer style="text-align: center; margin-top: 40px; padding: 20px 0; border-top: 1px solid #343a40; font-size: 0.9em; color: #adb5bd;">
-        <p>
-            <strong>AIANETWORKS</strong><br>
-            CEO: J.E. Park | Business Registration No: 644-88-01791<br>
-            Address: 13F, Bamboo Tower, 449 Bongeunsa-ro, Gangnam-gu, Seoul (Samseong-dong 44-17)<br>
-            <a href="https://github.com/aicoding-caret/caret-zero" target="_blank" rel="noopener noreferrer">GitHub Repository</a> |
-            <a href="https://www.facebook.com/groups/1027316935397432" target="_blank" rel="noopener noreferrer">Facebook Group</a><br>
-            &copy; 2025 AIANETWORKS. All Rights Reserved.
-        </p>
+                <article class="service-item">
+                     <div class="service-image-container">
+                        <!-- If an AutoDeepIndexer logo image is available, add it here -->
+                        <!-- <img src="images/icon.png" alt="AutoDeepIndexer Icon" style="opacity:0.7; border:1px solid #ddd; padding:10px;"> -->
+                    </div>
+                    <div class="service-content">
+                        <h3>AutoDeepIndexerTM</h3>
+                        <p>AutoDeepIndexerTM is an AI-based intelligent indexing solution that helps automatically extract and systematically manage meaningful information from vast amounts of image and video data. AIANETWORKS' ML-based backend system maximizes efficient content search, analysis, and utilization through text extraction, object recognition, automatic clustering, and data labeling functions.</p>
+                        <p><strong>Key Technologies:</strong> ML-based Backend System (Text Extraction, Object Recognition, Clustering, Data Labeling, Indexing)</p>
+                    </div>
+                </article>
+
+                <article class="service-item b2b-solution-item">
+                    <div class="full-width-image-container">
+                        <img src="images/b2b_fss_exhibition.jpg" alt="B2B Solution - FSS Exhibition">
+                    </div>
+                    <div class="service-content">
+                        <h3>B2B AI Solutions</h3>
+                        <p>AIANETWORKS supports business innovation by providing AI solutions tailored to the specific needs of corporate clients. We collaborate in various fields, including AI-driven exhibition planning, interactive event operation, and data-based consulting.</p>
+                        <ul>
+                            <li>Planning and technical support for the Financial Supervisory Service AI ART Special Exhibition</li>
+                            <li>Provision of Paintly Portrait B2B offline event services</li>
+                            <li>Production of star art goods, VIP custom portraits, and pet AI art</li>
+                        </ul>
+                        <div class="sample-images">
+                           <img src="images/b2b_offline_event_portrait.jpg" alt="B2B Offline Event">
+                           <img src="images/b2b_goods_vip_pet.jpg" alt="B2B Goods and Portraits">
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="media">
+            <div class="container">
+                <h2 class="section-title">Media Coverage</h2>
+                <div class="media-item" style="max-width: 700px; margin: 0 auto;">
+                    <a href="[Add link to article if available]" target="_blank" rel="noopener noreferrer">
+                        <img src="images/media_chosun_first_penguin.jpg" alt="Chosun Ilbo Article - We're The First Penguin">
+                    </a>
+                    <p>"We're 'The First Penguin.'" - Chosun Ilbo (Nov 5, 2019)</p>
+                </div>
+                <!-- Add more media items here if any -->
+            </div>
+        </section>
+
+        <section id="caret-project">
+            <div class="container">
+                <article class="service-item">
+                    <div class="service-image-container">
+                        <img src="images/caret_personas.jpg" alt="Caret Persona Feature Example">
+                    </div>
+                    <div class="service-content">
+                        <h3 style="color:#17a2b8;">New Project: Caret</h3>
+                        <p>AIANETWORKS is collaborating with its partner, <strong>Caretive</strong>, to innovate the AI development ecosystem. Caretive is dedicated to the technological development of the next-generation AI development agent, 'Caret,' and AIANETWORKS is working with Caretive to create synergy in this new business area. Furthermore, AIANETWORKS aims to contribute to the popularization of AI technology by conducting B2C AI coding education and AI art education businesses utilizing Caretive's 'Caret.' In particular, we plan to provide a more friendly and immersive customized educational experience for learners through Caret's persona setting function.</p>
+                        <p>Caret is an open-source project aiming for developer-led orchestration, freedom of model choice, and more.</p>
+                        <p><strong>Key Features:</strong> Developer-led orchestration using <code>.caretrules</code>, aiming for multi-agent and RAG support, flexibility in choosing various LLMs (OpenAI, Groq, Gemini, local sLLMs, etc.).</p>
+                        <p><strong>GitHub Repository:</strong> <a href="https://github.com/aicoding-caret/caret-zero" target="_blank" rel="noopener noreferrer">https://github.com/aicoding-caret/caret-zero</a></p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <p><strong>AIANETWORKS</strong></p>
+            <p>CEO: Jien Park | Business Registration No: 644-88-01791</p>
+            <p>Address: 13F, Bamboo Tower, 449 Bongeunsa-ro, Gangnam-gu, Seoul, Republic of Korea (Samsung-dong 44-17)</p>
+            <p>Email: contact@aianetworks.xyz</p>
+            <div class="footer-links">
+                <!-- <a href="[Company Tech Blog Link]" target="_blank" rel="noopener noreferrer">Tech Blog</a> -->
+                <!-- <a href="[Company SNS Link]" target="_blank" rel="noopener noreferrer">SNS</a> -->
+            </div>
+            <p style="margin-top:20px;">&copy; 2025 AIANETWORKS. All Rights Reserved.</p>
+        </div>
     </footer>
 </body>
 </html>
